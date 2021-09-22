@@ -5,6 +5,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import MainLayout from './../layout/MainLayout';
 import Loadable from '../ui-component/Loadable';
 import AuthGuard from './../utils/route-guard/AuthGuard';
+import GroupPanel from '../views/panels/GroupPanel';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default')));
@@ -50,7 +51,7 @@ const MainRoutes = () => {
 
                         <Route exact path="/employees/list" component={EmployeesPanel} />
                         <Route exact path="/employees/teams" component={EmployeesPanel} />
-                        <Route exact path="/employees/teams/:teamId" component={UtilsShadow} />
+                        <Route exact path="/employees/teams/:teamId" component={GroupPanel} />
                         <Route exact path="/calendar" component={SamplePage} />
                         <Route exact path="/files" component={SamplePage} />
                         <Route exact path="/benefits" component={SamplePage} />

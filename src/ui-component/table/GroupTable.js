@@ -22,7 +22,12 @@ const GroupTable = () => {
 
     return (
         <div className={classes.groupTableContainer}>
-            <MainHero icon={<IconUsers size="3rem" />} title="Teams" description="These are all teams created in your company" />
+            <MainHero
+                centered={true}
+                icon={<IconUsers size="3rem" />}
+                title="Teams"
+                description="These are all teams created in your company"
+            />
             <MainList />
         </div>
     );

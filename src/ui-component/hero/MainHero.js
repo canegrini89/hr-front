@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // material-ui
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
+import clsx from 'clsx';
 
 // style constant
 const useStyles = makeStyles((theme) => ({
@@ -16,19 +17,24 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1.4rem'
     },
     description: {
-        marginTop: '1rem',
         marginBottom: '1rem',
         fontSize: '1rem'
+    },
+    centered: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column'
     }
 }));
 
 //-----------------------|| Loader ||-----------------------//
 
-const MainHero = ({ icon, title, description }) => {
+const MainHero = ({ icon, title, description, centered }) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.mainHero}>
+        <div className={clsx(classes.mainHero, centered ? classes.centered : null)}>
             {icon && icon}
 
             {title && (
@@ -49,7 +55,8 @@ const MainHero = ({ icon, title, description }) => {
 MainHero.propTypes = {
     icon: PropTypes.node,
     title: PropTypes.string,
-    description: PropTypes.string
+    description: PropTypes.string,
+    centered: PropTypes.bool
 };
 
 export default MainHero;

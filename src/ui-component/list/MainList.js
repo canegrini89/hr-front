@@ -6,6 +6,8 @@ const MainList = () => {
     return (
         <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
             <ListRow />
+            <ListRow />
+            <ListRow />
         </List>
     );
 };
