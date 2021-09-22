@@ -31,7 +31,6 @@ import axios from 'axios';
 // project imports
 import MainCard from '../../../../ui-component/cards/MainCard';
 import Transitions from '../../../../ui-component/extended/Transitions';
-import UpgradePlanCard from './UpgradePlanCard';
 import { LOGOUT } from './../../../../store/actions';
 
 // assets
@@ -134,12 +133,11 @@ const ProfileSection = () => {
     const handleLogout = () => {
         console.log(account.token);
         axios
-            .post( configData.API_SERVER + 'users/logout', {}, { headers: { Authorization: `${account.token}` } })
+            .post(configData.API_SERVER + 'logout', {}, { headers: { Authorization: `${account.token}` } })
             .then(function (response) {
-                
                 // Force the LOGOUT
                 //if (response.data.success) {
-                    dispatcher({ type: LOGOUT });
+                dispatcher({ type: LOGOUT });
                 //} else {
                 //    console.log('response - ', response.data.msg);
                 //}
@@ -242,7 +240,6 @@ const ProfileSection = () => {
                                         />
                                         <Divider />
                                         <PerfectScrollbar className={classes.ScrollHeight}>
-                                            <UpgradePlanCard />
                                             <Divider />
                                             <Card className={classes.card}>
                                                 <CardContent>

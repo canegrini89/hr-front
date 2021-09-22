@@ -10,11 +10,10 @@ import AuthGuard from './../utils/route-guard/AuthGuard';
 const DashboardDefault = Loadable(lazy(() => import('../views/dashboard/Default')));
 
 // utilities routing
-const UtilsTypography = Loadable(lazy(() => import('../views/utilities/Typography')));
-const UtilsColor = Loadable(lazy(() => import('../views/utilities/Color')));
-const UtilsShadow = Loadable(lazy(() => import('../views/utilities/Shadow')));
-const UtilsMaterialIcons = Loadable(lazy(() => import('../views/utilities/MaterialIcons')));
-const UtilsTablerIcons = Loadable(lazy(() => import('../views/utilities/TablerIcons')));
+const UtilsTypography = Loadable(lazy(() => import('../views/panels/Typography')));
+const UtilsColor = Loadable(lazy(() => import('../views/panels/Color')));
+const UtilsShadow = Loadable(lazy(() => import('../views/panels/Shadow')));
+const EmployeesPanel = Loadable(lazy(() => import('../views/panels/EmployeesPanel')));
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('../views/sample-page')));
@@ -27,29 +26,33 @@ const MainRoutes = () => {
     return (
         <Route
             path={[
-                '/dashboard/default',
+                '/dashboard',
+                '/profile',
+                '/time-off',
+                '/clock-in',
+                '/documents',
 
-                '/utils/util-typography',
-                '/utils/util-color',
-                '/utils/util-shadow',
-                '/icons/tabler-icons',
-                '/icons/material-icons',
-
-                '/sample-page'
+                '/employees',
+                '/calendar',
+                '/files',
+                '/benefits',
+                '/reports'
             ]}
         >
             <MainLayout>
                 <Switch location={location} key={location.pathname}>
                     <AuthGuard>
-                        <Route path="/dashboard/default" component={DashboardDefault} />
+                        <Route path="/dashboard" component={DashboardDefault} />
+                        <Route path="/profile" component={UtilsTypography} />
+                        <Route path="/time-off" component={UtilsColor} />
+                        <Route path="/clock-in" component={UtilsShadow} />
+                        <Route path="/documents" component={UtilsShadow} />
 
-                        <Route path="/utils/util-typography" component={UtilsTypography} />
-                        <Route path="/utils/util-color" component={UtilsColor} />
-                        <Route path="/utils/util-shadow" component={UtilsShadow} />
-                        <Route path="/icons/tabler-icons" component={UtilsTablerIcons} />
-                        <Route path="/icons/material-icons" component={UtilsMaterialIcons} />
-
-                        <Route path="/sample-page" component={SamplePage} />
+                        <Route path="/employees" component={EmployeesPanel} />
+                        <Route path="/calendar" component={SamplePage} />
+                        <Route path="/files" component={SamplePage} />
+                        <Route path="/benefits" component={SamplePage} />
+                        <Route path="/reports" component={SamplePage} />
                     </AuthGuard>
                 </Switch>
             </MainLayout>

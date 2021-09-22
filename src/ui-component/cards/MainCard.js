@@ -4,11 +4,12 @@ import React from 'react';
 // material-ui
 import { useTheme } from '@material-ui/styles';
 import { Card, CardContent, CardHeader, Divider, Typography } from '@material-ui/core';
+import MainTabs from '../tabs/MainTabs';
 
 // constant
-const headerSX = {
-    '& .MuiCardHeader-action': { mr: 0 }
-};
+// const headerSX = {
+//     '& .MuiCardHeader-action': { mr: 0 }
+// };
 
 //-----------------------|| CUSTOM MAIN CARD ||-----------------------//
 
@@ -26,6 +27,7 @@ const MainCard = React.forwardRef(
             shadow,
             sx = {},
             title,
+            tabs,
             ...others
         },
         ref
@@ -46,13 +48,14 @@ const MainCard = React.forwardRef(
                 }}
             >
                 {/* card header and action */}
-                {!darkTitle && title && <CardHeader sx={headerSX} title={title} action={secondary} />}
-                {darkTitle && title && (
-                    <CardHeader sx={headerSX} title={<Typography variant="h3">{title}</Typography>} action={secondary} />
-                )}
+                {!tabs && !darkTitle && title && <CardHeader title={title} action={secondary} />}
+                {!tabs && darkTitle && title && <CardHeader title={<Typography variant="h3">{title}</Typography>} action={secondary} />}
+
+                {/* render tabs */}
+                {tabs && <MainTabs tabs={tabs} />}
 
                 {/* content & header divider */}
-                {title && <Divider />}
+                {(title || tabs) && <Divider />}
 
                 {/* card content */}
                 {content && (
@@ -77,7 +80,8 @@ MainCard.propTypes = {
     secondary: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]),
     shadow: PropTypes.string,
     sx: PropTypes.object,
-    title: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object])
+    title: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.object]),
+    tabs: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default MainCard;

@@ -1,8 +1,7 @@
 {
-    "name": "react-berry-admin-template",
-    "version": "0.0.4",
+    "name": "admin-template",
+    "version": "1.0.0",
     "private": true,
-    "homepage": "https://berrydashboard.io",
     "dependencies": {
         "@emotion/react": "^11.4.0",
         "@emotion/styled": "^11.3.0",
