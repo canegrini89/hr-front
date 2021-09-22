@@ -42,17 +42,19 @@ const MainRoutes = () => {
             <MainLayout>
                 <Switch location={location} key={location.pathname}>
                     <AuthGuard>
-                        <Route path="/dashboard" component={DashboardDefault} />
-                        <Route path="/profile" component={UtilsTypography} />
-                        <Route path="/time-off" component={UtilsColor} />
-                        <Route path="/clock-in" component={UtilsShadow} />
-                        <Route path="/documents" component={UtilsShadow} />
+                        <Route exact path="/dashboard" component={DashboardDefault} />
+                        <Route exact path="/profile" component={UtilsTypography} />
+                        <Route exact path="/time-off" component={UtilsColor} />
+                        <Route exact path="/clock-in" component={UtilsShadow} />
+                        <Route exact path="/documents" component={UtilsShadow} />
 
-                        <Route path="/employees" component={EmployeesPanel} />
-                        <Route path="/calendar" component={SamplePage} />
-                        <Route path="/files" component={SamplePage} />
-                        <Route path="/benefits" component={SamplePage} />
-                        <Route path="/reports" component={SamplePage} />
+                        <Route exact path="/employees/list" component={EmployeesPanel} />
+                        <Route exact path="/employees/teams" component={EmployeesPanel} />
+                        <Route exact path="/employees/teams/:teamId" component={UtilsShadow} />
+                        <Route exact path="/calendar" component={SamplePage} />
+                        <Route exact path="/files" component={SamplePage} />
+                        <Route exact path="/benefits" component={SamplePage} />
+                        <Route exact path="/reports" component={SamplePage} />
                     </AuthGuard>
                 </Switch>
             </MainLayout>

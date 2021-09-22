@@ -21,7 +21,7 @@ export const company = {
             id: 'employees',
             title: 'Employees',
             type: 'item',
-            url: '/employees',
+            url: '/employees/list',
             icon: icons['IconUsers'],
             breadcrumbs: false
         },

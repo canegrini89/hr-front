@@ -2,8 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Tabs } from '@material-ui/core';
 import { Tab } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { SET_CURRENT_TAB } from '../../store/actions';
+import { useHistory } from 'react-router';
 
 function a11yProps(index) {
     return {
@@ -13,17 +12,27 @@ function a11yProps(index) {
 }
 
 function MainTabs({ tabs }) {
-    const dispatch = useDispatch();
-    const currentTab = useSelector((state) => state.customization.currentTab);
+    const [value, setValue] = React.useState(0);
+    const history = useHistory();
 
     const handleChange = (event, newValue) => {
-        dispatch({ type: SET_CURRENT_TAB, currentTab: newValue });
+        setValue(newValue);
+    };
+
+    const setUrl = (e) => {
+        if (e.currentTarget.id.includes('employees')) {
+            return history.push('/employees/list');
+        } else if (e.currentTarget.id.includes('teams')) {
+            return history.push('/employees/teams');
+        } else {
+            return history.push('/employees/organizational-chart');
+        }
     };
 
     return (
-        <Tabs key={currentTab} value={currentTab} onChange={handleChange} aria-label="main-tab" centered>
+        <Tabs key={value} value={value} onChange={handleChange} aria-label="main-tab" centered>
             {tabs.map((tab) => (
-                <Tab label={tab} {...a11yProps(tab)} />
+                <Tab label={tab} {...a11yProps(tab)} key={tab} onClick={(e) => setUrl(e)} />
             ))}
         </Tabs>
     );

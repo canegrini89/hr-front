@@ -3,14 +3,16 @@ import { Avatar, IconButton, ListItem, ListItemAvatar, ListItemText } from '@mat
 import { IconArrowBigRight } from '@tabler/icons';
 import { stringAvatar } from '../../utils/string-utils';
 import { useTheme } from '@emotion/react';
+import { useHistory } from 'react-router';
 
 const ListRow = ({ data }) => {
     const theme = useTheme();
+    const history = useHistory();
 
     return (
         <ListItem
             secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton edge="end" aria-label="routing" onClick={() => history.push('/employees/teams/123')}>
                     <IconArrowBigRight />
                 </IconButton>
             }
