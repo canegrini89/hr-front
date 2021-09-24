@@ -8,7 +8,9 @@ export const initialState = {
     isOpen: [], //for active default menu
     fontFamily: config.fontFamily,
     borderRadius: config.borderRadius,
-    opened: true
+    opened: true,
+    isModalOpen: false,
+    modalType: null
 };
 
 //-----------------------|| CUSTOMIZATION REDUCER ||-----------------------//
@@ -36,6 +38,10 @@ const customizationReducer = (state = initialState, action) => {
                 ...state,
                 borderRadius: action.borderRadius
             };
+        case actionTypes.OPEN_MODAL:
+            return { ...state, isModalOpen: true, modalType: action.payload };
+        case actionTypes.CLOSE_MODAL:
+            return { ...state, isModalOpen: false, modalType: null };
         default:
             return state;
     }

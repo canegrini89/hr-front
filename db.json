@@ -1,0 +1,68 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "profile": {
+                "manager": "John Doe",
+                "email": "employee-6428@payrol.com",
+                "office": "London hq",
+                "timeOffPolicy": "Company policy",
+                "timeOffSupervisor": "John Doe",
+                "teams": "Marketing"
+            },
+            "personal": {
+                "generalInformation": {
+                    "firstName": "Aaron",
+                    "lastName": "Mills",
+                    "dateOfBirth": "12/06/1985",
+                    "imageUrl": "http://image.com",
+                    "gender": "male",
+                    "nationality": "spain",
+                    "phoneNumber": "1321321",
+                    "jobTitle": "Online marketing manager"
+                },
+                "identificationNumber": {
+                    "IDNumber": "4564465",
+                    "socialSecurityNumber": "4654654"
+                },
+                "address": {
+                    "addressLine1": "williams street",
+                    "addressLine2": "house 2",
+                    "city": "barcelona",
+                    "zipCode": "0808",
+                    "state": "barcelona",
+                    "country": "spain"
+                },
+                "emergencyContact": {
+                    "name": "john doe",
+                    "phoneNumber": "4654654"
+                }
+            },
+            "contract": {
+                "basicInfo": {
+                    "startDate": "04/03/2020",
+                    "endDate": "04/03/2020",
+                    "jobTitle": "online marketing manager"
+                },
+                "workSchedule": {
+                    "amountOfHours": 40,
+                    "unit": "week",
+                    "days": ["monday", "tuesday", "wednesday", "thursday", "friday"]
+                },
+                "grossSalary": {
+                    "amount": 52000,
+                    "type": "yearly"
+                }
+            },
+            "documents": {},
+            "timeOff": {}
+        },
+        { "id": 2, "name": "Kaleb Brooks", "jobTitle": "Employee" },
+        { "id": 3, "name": "Lily Knight", "jobTitle": "Employee" },
+        { "id": 4, "name": "Kareem Foster", "jobTitle": "Employee" },
+        { "id": 5, "name": "Desmond Leonard", "jobTitle": "Senior Analyst" },
+        { "id": 6, "name": "Declan Hamilton", "jobTitle": "Online marketing specialist" }
+    ],
+    "teams": [{ "id": 1, "body": "some comment" }],
+    "profile": { "name": "typicode" }
+}

@@ -1,21 +1,14 @@
 import * as React from 'react';
-import { Avatar, IconButton, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
-import { IconArrowBigRight } from '@tabler/icons';
+import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
 import { stringAvatar } from '../../utils/string-utils';
 import { useTheme } from '@emotion/react';
-import { useHistory } from 'react-router';
 
-const ListRow = ({ data }) => {
+const ListRow = ({ primaryText, secondaryText, secondaryAction }) => {
     const theme = useTheme();
-    const history = useHistory();
 
     return (
         <ListItem
-            secondaryAction={
-                <IconButton edge="end" aria-label="routing" onClick={() => history.push('/employees/teams/123')}>
-                    <IconArrowBigRight />
-                </IconButton>
-            }
+            secondaryAction={secondaryAction}
             sx={{
                 border: '1px solid',
                 borderColor: theme.palette.grey[500] + 30
@@ -24,7 +17,7 @@ const ListRow = ({ data }) => {
             <ListItemAvatar>
                 <Avatar {...stringAvatar('Kent Dodds')} />
             </ListItemAvatar>
-            <ListItemText primary="Investment Team" secondary="4 employees" />
+            <ListItemText primary={primaryText ? primaryText : null} secondary={secondaryText ? secondaryText : null} />
         </ListItem>
     );
 };

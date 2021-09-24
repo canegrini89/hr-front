@@ -9,7 +9,7 @@ import clsx from 'clsx';
 // style constant
 const useStyles = makeStyles((theme) => ({
     mainHero: {
-        maxWidth: 250
+        maxWidth: 350
     },
     title: {
         marginTop: '1rem',

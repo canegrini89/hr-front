@@ -12,6 +12,7 @@ import theme from './themes';
 
 // project imports
 import NavigationScroll from './layout/NavigationScroll';
+import MainModal from './ui-component/modal/MainModal';
 
 //-----------------------|| APP ||-----------------------//
 
@@ -23,6 +24,7 @@ const App = () => {
             <ThemeProvider theme={theme(customization)}>
                 <CssBaseline />
                 <NavigationScroll>
+                    <MainModal />
                     <Routes />
                 </NavigationScroll>
             </ThemeProvider>
